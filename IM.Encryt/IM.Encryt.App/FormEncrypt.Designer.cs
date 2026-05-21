@@ -26,6 +26,7 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEncrypt));
             label1 = new Label();
             txtSecretKey = new TextBox();
             label2 = new Label();
@@ -39,20 +40,17 @@
             rdLegacy = new RadioButton();
             txtPublicKey = new TextBox();
             label3 = new Label();
-
             groupBox1.SuspendLayout();
             SuspendLayout();
-
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Location = new Point(15, 65);
             label1.Name = "label1";
-            label1.Size = new Size(64, 15);
+            label1.Size = new Size(59, 15);
             label1.TabIndex = 0;
             label1.Text = "Input Text";
-
             // 
             // txtSecretKey
             // 
@@ -60,17 +58,15 @@
             txtSecretKey.Name = "txtSecretKey";
             txtSecretKey.Size = new Size(280, 23);
             txtSecretKey.TabIndex = 1;
-
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Location = new Point(15, 28);
             label2.Name = "label2";
-            label2.Size = new Size(67, 15);
+            label2.Size = new Size(61, 15);
             label2.TabIndex = 2;
             label2.Text = "Secret Key";
-
             // 
             // txtText
             // 
@@ -78,7 +74,6 @@
             txtText.Name = "txtText";
             txtText.Size = new Size(500, 23);
             txtText.TabIndex = 3;
-
             // 
             // txtResult
             // 
@@ -89,7 +84,6 @@
             txtResult.ScrollBars = ScrollBars.Vertical;
             txtResult.Size = new Size(577, 180);
             txtResult.TabIndex = 4;
-
             // 
             // btnEncrypt
             // 
@@ -100,7 +94,6 @@
             btnEncrypt.Text = "Encrypt";
             btnEncrypt.UseVisualStyleBackColor = true;
             btnEncrypt.Click += btnEncrypt_Click;
-
             // 
             // btnDecrypt
             // 
@@ -111,7 +104,6 @@
             btnDecrypt.Text = "Decrypt";
             btnDecrypt.UseVisualStyleBackColor = true;
             btnDecrypt.Click += btnDecrypt_Click;
-
             // 
             // groupBox1
             // 
@@ -124,18 +116,17 @@
             groupBox1.TabIndex = 7;
             groupBox1.TabStop = false;
             groupBox1.Text = "Encryption Mode";
-
             // 
-            // rdLegacy
+            // rdRSA
             // 
-            rdLegacy.AutoSize = true;
-            rdLegacy.Location = new Point(10, 18);
-            rdLegacy.Name = "rdLegacy";
-            rdLegacy.Size = new Size(67, 19);
-            rdLegacy.TabIndex = 0;
-            rdLegacy.Text = "Legacy";
-            rdLegacy.UseVisualStyleBackColor = true;
-
+            rdRSA.AutoSize = true;
+            rdRSA.Location = new Point(162, 18);
+            rdRSA.Name = "rdRSA";
+            rdRSA.Size = new Size(46, 19);
+            rdRSA.TabIndex = 2;
+            rdRSA.Text = "RSA";
+            rdRSA.UseVisualStyleBackColor = true;
+            rdRSA.CheckedChanged += rdRSA_CheckedChanged;
             // 
             // rdModern
             // 
@@ -143,34 +134,21 @@
             rdModern.Checked = true;
             rdModern.Location = new Point(83, 18);
             rdModern.Name = "rdModern";
-            rdModern.Size = new Size(73, 19);
+            rdModern.Size = new Size(67, 19);
             rdModern.TabIndex = 1;
             rdModern.TabStop = true;
             rdModern.Text = "Modern";
             rdModern.UseVisualStyleBackColor = true;
-
             // 
-            // rdRSA
+            // rdLegacy
             // 
-            rdRSA.AutoSize = true;
-            rdRSA.Location = new Point(162, 18);
-            rdRSA.Name = "rdRSA";
-            rdRSA.Size = new Size(47, 19);
-            rdRSA.TabIndex = 2;
-            rdRSA.Text = "RSA";
-            rdRSA.UseVisualStyleBackColor = true;
-            rdRSA.CheckedChanged += rdRSA_CheckedChanged;
-
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(18, 338);
-            label3.Name = "label3";
-            label3.Size = new Size(67, 15);
-            label3.TabIndex = 8;
-            label3.Text = "Public Key";
-
+            rdLegacy.AutoSize = true;
+            rdLegacy.Location = new Point(10, 18);
+            rdLegacy.Name = "rdLegacy";
+            rdLegacy.Size = new Size(62, 19);
+            rdLegacy.TabIndex = 0;
+            rdLegacy.Text = "Legacy";
+            rdLegacy.UseVisualStyleBackColor = true;
             // 
             // txtPublicKey
             // 
@@ -180,7 +158,15 @@
             txtPublicKey.ScrollBars = ScrollBars.Vertical;
             txtPublicKey.Size = new Size(577, 120);
             txtPublicKey.TabIndex = 9;
-
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(18, 338);
+            label3.Name = "label3";
+            label3.Size = new Size(62, 15);
+            label3.TabIndex = 8;
+            label3.Text = "Public Key";
             // 
             // FormEncrypt
             // 
@@ -199,6 +185,7 @@
             Controls.Add(txtSecretKey);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "FormEncrypt";
             StartPosition = FormStartPosition.CenterScreen;
